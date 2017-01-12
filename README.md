@@ -19,6 +19,15 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 ~~~
 iptables -t nat -A POSTROUTING -s 10.1.0.1/16 -o eth0 -j MASQUERADE
 ~~~
+* On both server and client, copy the respective openvpn config files to /etc/openvpn
+On Server:
+~~~
+sudo cp server.conf /etc/openvpn
+~~~
+On Client:
+~~~
+sudo cp client.conf /etc/openvpn
+~~~
 * On the server, Run the openvpn server daemon
 ~~~
 openvpn server.conf
